@@ -1,0 +1,56 @@
+{{ partial "header.html" . }}
+
+
+  {{ if .Params.image }}
+    <div class="post-image" style="background-image: url({{.Params.image}});"></div>
+  {{ end }}
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-9">
+
+      <main class="post-content">
+        <h1>{{.Title}}</h1>
+
+        <p class="post-date text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+            {{$author := index .Site.Data.authors (or .Params.author .Site.Params.author)}}
+            {{$authorname := or $author.name .Site.Params.author }}
+            {{$authorthumbnail := or $author.thumbnail .Site.Params.author }}
+            <img class="post-avatar no-border" width="32" src="{{$authorthumbnail}}" alt="{{$authorname}}"> {{$authorname}} posted on the {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day}}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day}}rd{{ else }}th{{ end }} of {{ .Date.Format "January 2006" }}
+        </p>
+  
+        {{.Content}}
+  
+        <div class="footer-content">
+          <div class="text-muted">
+            Want to let me know what you think of BookStack or this post? <br>
+            You can find me on Mastodon <a href="https://fosstodon.org/@danb">@danb@fosstodon.org</a> or on the <a href="https://discord.gg/ztkBqR2">BookStack Discord server</a>. <br>
+          </div>
+
+          {{ partial "signup.html" . }}
+  
+        </div>
+      </main>
+    </div>
+
+    <aside class="col-md-3 blog-sidebar-post-list">
+      <h4>Latest Posts</h4>
+      <div class="recent-posts">
+        {{ range first 8 ( where .Site.RegularPages "Section" "blog") }}
+          <a class="blogpost-list-small" href="{{.Permalink}}">
+            <h5 class="text">{{ .Title }}</h5>
+            <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+                {{ .Date.Format "2 Jan 2006" }}
+            </time>
+          </a>
+        {{ end }}
+      </div>
+    </aside>
+
+  </div>
+
+</div>
+
+{{ partial "footer.html" . }}

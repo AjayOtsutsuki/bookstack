@@ -1,0 +1,44 @@
+languageCode = "en-gb"
+title = "BookStack"
+baseurl = "https://ajayotsutsuki.github.io/bookstack"
+theme="bookstack"
+enableGitInfo=true
+paginate=50
+summarylength=20
+assetDir = "static"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      xHTML = true
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "pygments"
+    tabWidth = 4
+    wrapLongLines = false
+  [markup.tableOfContents]
+    startLevel = 3
+    endLevel = 3
+
+[permalinks]
+  post = "/blog/:slug/"
+
+[params]
+  blogCover = "/images/cover.jpg"
+  description = "BookStack is a simple, open-source, self-hosted, easy-to-use platform for organising and storing information."
+  [params.social]
+    twitter = "bookstack_app"
+
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true

@@ -1,0 +1,56 @@
+{{ partial "header.html" . }}
+
+<div class="shaded primary padded-vertical">
+  <div class="container">
+    {{ if eq .Type "admin-doc" }}
+      <div class="docs-section-title">Admin Documentation</div>
+    {{ else if eq .Type "user-doc" }}
+      <div class="docs-section-title">User Documentation</div>
+    {{else}}
+      <div class="docs-section-title">Documentation</div>
+    {{end}}
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <aside class="col-md-2 sidebar">
+      <div class="sidebar-inner">
+        <ul>
+          <li><a href="/docs">All Documentation</a></li>
+        </ul>
+        {{ if eq .Type "admin-doc" }}
+        {{partial "menu_admin_docs"}}
+        {{end}}
+        {{ if eq .Type "user-doc" }}
+        {{partial "menu_user_docs"}}
+        {{end}}
+      </div>
+      <div class="sidebar-inner mobile">
+        <ul>
+          <li><a href="/docs">&laquo; All Documentation</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="col-md-8 col-md-offset-1 docs-content">
+
+      <h1>{{.Title}}</h1>
+
+      {{.Content}}
+
+      <div class="text-center">
+        <a class="edit-link" target="_blank"
+        href="https://github.com/BookStackApp/website/blob/main/content/{{ .File.Path }}">
+          <span class="icon small">{{partial "icon/edit.svg"}}</span>
+          Edit this Page
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+</div>
+
+{{ partial "footer.html" . }}

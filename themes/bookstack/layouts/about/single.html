@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+
+<div class="about-page">
+  <div class="shaded primary">
+    <div class="container small hero padded-vertical">
+      <h1 class="text-center">{{.Title}}</h1>
+        {{ if .Params.image }}
+          <!-- <img class="screenshot" src="{{.Params.image}}" alt="{{.Title}}"> -->
+        {{ end }}   
+    </div>
+  </div>
+  
+  
+  <div class="container small padded-vertical">
+    {{.Content}}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}

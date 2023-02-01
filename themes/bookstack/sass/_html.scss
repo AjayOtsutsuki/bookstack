@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background-color: #FFFFFF;
+  height: 100%;
+}
+body {
+  font-family: $text;
+  font-size: $fs-m;
+  line-height: 1.6;
+  color: #444;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+table {
+  min-width: 100px;
+  td, th {
+	min-width: 10px;
+	padding: 4px 6px;
+	border: 1px solid #DDD;
+  }
+  th {
+    background-color: #EEE;
+    font-weight: normal;
+  }
+}

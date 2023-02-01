@@ -1,0 +1,67 @@
+{{ partial "header.html" . }}
+
+<div class="primary shaded padded-vertical">
+	<div class="container">
+		{{ if eq .Type "admin-doc" }}
+		<div class="docs-section-title">Admin Documentation</div>
+		{{ else if eq .Type "user-doc" }}
+		<div class="docs-section-title">User Documentation</div>
+		{{else}}
+		<div class="docs-section-title">Documentation</div>
+		{{end}}
+	</div>
+</div>
+
+
+<div class="container docs-index">
+	{{if ne .Page.Type "user-doc"}}
+	<div class="padded-vertical margin-bottom">
+		{{if ne .Page.Type "admin-doc"}}
+		<h3>Admin Documentation</h3>
+		{{end}}
+		<div class="docs-index-row">
+			{{partial "menu_admin_docs"}}
+		</div>
+	</div>
+	<hr class="nomargin margin-bottom">
+	{{end}}
+
+	{{if ne .Page.Type "admin-doc"}}
+	<div class="padded-vertical margin-bottom">
+		{{if ne .Page.Type "user-doc"}}
+		<h3>User Documentation</h3>
+		{{end}}
+		<div class="docs-index-row">
+			{{partial "menu_user_docs"}}
+		</div>
+	</div>
+	{{end}}
+</div>
+
+<div class="shaded shaded-border padded-vertical large">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Our Guides on YouTube</h3>
+				<p>
+					If you prefer videos to text, or need a bit of visual guidance,
+					our YouTube channel hosts a series of videos that cover installation,
+					configuration, maintenance and usage.
+				</p>
+				<p>
+					<a href="https://www.youtube.com/channel/UCH66RFWfw6CSm2T1EM4ik1g" target="_blank"
+						rel="noopener">View our channel here &raquo;</a>
+				</p>
+			</div>
+			<div class="col-md-6">
+				<div class="youtube-embed-wrap" style="max-width: 560px;">
+					<a href="https://www.youtube.com/watch?v=tSaDVduc3uI" target="_blank" title="View Video" rel="noreferrer noopener">
+						<img src="/images/yt/tSaDVduc3uI.webp" alt="YouTube Video Thumbnail">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{ partial "footer.html" . }}

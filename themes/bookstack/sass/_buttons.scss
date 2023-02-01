@@ -1,0 +1,59 @@
+
+@mixin generate-button-colors($textColor, $backgroundColor) {
+  background-color: $backgroundColor;
+  color: $textColor;
+  &:hover {
+    background-color: lighten($backgroundColor, 8%);
+    box-shadow: $bs-med;
+    text-decoration: none;
+    color: $textColor;
+  }
+  &:active {
+    background-color: darken($backgroundColor, 8%);
+  }
+  &:focus {
+    outline: 1px solid $primary;
+    outline-offset: 3px;
+  }
+}
+
+// Button Specific Variables
+$button-border-radius: 2px;
+
+.button-base {
+  text-decoration: none;
+  font-size: $fs-m;
+  line-height: 1.4em;
+  padding: $-xs $-m;
+  margin: $-xs $-xs $-xs 0;
+  display: inline-block;
+  border: none;
+  font-weight: 500;
+  font-family: $text;
+  outline: 0;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  transition: all ease-in-out 120ms;
+  box-shadow: 0 0.5px 1.5px 0 rgba(0, 0, 0, 0.21);
+  @include generate-button-colors(#FFF, $primary);
+}
+
+.button, input[type="button"], input[type="submit"]  {
+  @extend .button-base;
+  &.muted {
+    @include generate-button-colors(#FFF, #888);
+  }
+}
+
+.button.block {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.button.icon {
+  i {
+    padding-right: 0;
+  }
+}
+

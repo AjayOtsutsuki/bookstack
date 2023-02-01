@@ -1,0 +1,72 @@
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+            	<div class="col-lg-4">
+            		<p>
+            		    BookStack - Created By <a href="https://danb.me" title="danb.me" target="_blank" rel="noopener">Dan Brown</a> and developed with the <a href="https://github.com/BookStackApp/BookStack/graphs/contributors" target="_blank" rel="noopener">community</a>.
+                        Page generated with <a href="https://gohugo.io">hugo</a>, Site source can be found <a href="https://github.com/BookStackApp/website" rel="noopener" target="_blank">here on GitHub</a>.
+                        <br><br>
+                        This website uses a self-hosted instance of <a href="https://plausible.io/" target="_blank" rel="noreferrer">Plausible</a> for analytics.
+                        Our site stats can <a href="https://analytics.bookstackapp.com/bookstackapp.com" target="_blank" rel="noreferrer">be viewed here</a>. 
+                        We also use <a href="https://www.meilisearch.com/" target="_blank" rel="noreferrer">MeiliSearch</a> for providing better search.
+                        <br><br>
+                        BookStack&reg; is a registered trade mark of Daniel Brown. <br>
+                        Copyright 2015-{{ now.Year }} Dan Brown.
+                    </p>
+            	</div>
+                <div class="col-lg-1"></div>
+            	<div class="col-xs-6 col-sm-4 col-lg-2">
+                    <h5>On the site</h5>
+                    <ul class="nav-list">
+                        <li><a href="{{.Site.BaseURL}}docs">Documentation</a></li>
+                        <li><a href="{{.Site.BaseURL}}#features">Our Features</a></li>
+                        <li><a href="{{.Site.BaseURL}}#demo">View the Demo</a></li>
+                        <li><a href="{{.Site.BaseURL}}blog" target="_blank">Read our Blog</a></li>
+                        <li><a href="{{.Site.BaseURL}}donate">Donate</a></li>
+                    </ul>
+            	</div>
+                <div class="col-xs-6 col-sm-4 col-lg-2">
+                    <h5>Follow Us</h5>
+                    <ul class="nav-list">
+                        <li><a href="https://github.com/BookStackApp/BookStack" target="_blank">Github</a></li>
+                        <li><a href="https://discord.gg/ztkBqR2" target="_blank">Discord</a></li>
+                        <li><a href="https://twitter.com/bookstack_app" target="_blank">Twitter</a></li>
+                        <li><a rel="me" href="https://fosstodon.org/@bookstack" target="_blank">Mastodon</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCH66RFWfw6CSm2T1EM4ik1g" target="_blank">YouTube</a></li>
+                        <li><a href="https://www.reddit.com/r/bookstack" target="_blank">Reddit</a></li>
+                    </ul>
+            	</div>
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <h5>Information</h5>
+                    <ul class="nav-list">
+                        <li><a href="/about/confluence-alternative/">A Confluence Alternative</a></li>
+                        <li><a href="/about/teams-wiki-alternative/">Microsoft Teams Wiki Alternative</a></li>
+                        <li><a href="/about/open-source-documentation-software/">Open Source Documentation Software</a></li>
+                        <li><a href="/support/">Our Support Services</a></li>
+                    </ul>
+            	</div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script src="{{.Site.BaseURL}}libs/docs-searchbar.min.js"></script>
+    <script>
+        const searchInputSelector = '.doc-search-input,.blog-search-input';
+        if (document.querySelector(searchInputSelector) !== null) {
+            docsSearchBar({
+                hostUrl: 'https://search.bookstackapp.com',
+                apiKey: 'f896fc840ba4f2881068c5e8f0cd5c33546646967bd176ecda716dd0a89b280c',
+                indexUid: 'docs',
+                inputSelector: searchInputSelector,
+                debug: false, // Set debug to true if you want to inspect the dropdown
+            })
+        }
+    </script>
+
+    <script src="{{.Site.BaseURL}}js/script.js"></script>
+</body>
+</html>
